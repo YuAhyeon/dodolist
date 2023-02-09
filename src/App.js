@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+let nextId = 4;
+
 const App = () => {
   const [insertToggle, setInsertToggle] = useState(false);
   const [todos, setTodos] = useState([
@@ -37,6 +39,20 @@ const App = () => {
     setInsertToggle(!insertToggle);
   };
 
+  const onInsertTodo = (text) => {
+    if (text === '') {
+      return alert('할 일을 입력해 주세요!');
+    } else {
+      const todo = {
+        id: nextId,
+        text,
+        checked: false,
+      };
+      setTodos([...todos, todo]);
+      nextId++;
+    }
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -47,7 +63,9 @@ const App = () => {
         <div onClick={handleToggle}>
           <TodoCreateBtn />
         </div>
-        {insertToggle && <TodoInsert handleToggle={handleToggle} />}
+        {insertToggle && (
+          <TodoInsert onInsertTodo={onInsertTodo} handleToggle={handleToggle} />
+        )}
       </TodoTemplate>
     </>
   );

@@ -35,13 +35,13 @@ const TodoItemBlock = styled.div`
     padding-left: 20px;
     background-color: white;
     border-radius: 25px;
-    border: solid 2px #373737;
+    border: solid 2px #462216;
   }
 
   .icon {
     /* margin: 0px 4px 0px 2px; */
     margin: 3px 4px;
-    color: #794622;
+    color: #462216;
   }
 `;
 

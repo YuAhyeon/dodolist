@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { ImCancelCircle } from 'react-icons/im';
 
 const TodoInsertBlock = styled.div`
   position: absolute;
-  top: 70%;
+  top: 68%;
   left: 38px;
+
+  .cancell {
+    color: #462216;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    left: 283px;
+    font-size: 13px;
+  }
+
   .wrapForm {
     width: 300px;
     height: 100px;
-    background: blue;
+    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 12px;
+    border: 3px solid #462216;
   }
 
   form {
     display: flex;
+    position: absolute;
+    top: 35px;
     justify-content: center;
-    background: red;
     width: 300px;
   }
   input {
@@ -27,6 +40,7 @@ const TodoInsertBlock = styled.div`
     width: 200px;
     border: 3px solid #462216;
     border-radius: 10px;
+    margin-left: 5px;
     padding: 8px;
   }
 
@@ -48,20 +62,43 @@ const TodoInsertBlock = styled.div`
     color: #1d1d1d;
     border: 2px solid #462216;
   }
+
+  button:hover .submitBtn {
+    border: 2px solid #ffefaf;
+    color: #ffefaf;
+    background: #462216;
+  }
 `;
 
-const TodoInsert = ({ handleToggle }) => {
+const TodoInsert = ({ handleToggle, onInsertTodo }) => {
+  const [value, setValue] = useState('');
+
+  const handleOnChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const HandleOnSubmit = (e) => {
+    e.preventDefault();
+    onInsertTodo(value);
+    setValue('');
+    handleToggle();
+  };
   return (
     <TodoInsertBlock>
-      <div className="background" onClick={handleToggle}>
-        <div className="wrapForm">
-          <form>
-            <input placeholder="할 일을 적어보세요!"></input>
-            <button type="submit">
-              <div className="submitBtn">OK</div>
-            </button>
-          </form>
-        </div>
+      <div className="cancell" onClick={handleToggle}>
+        ✕
+      </div>
+      <div className="wrapForm">
+        <form onSubmit={HandleOnSubmit}>
+          <input
+            placeholder="할 일을 적어보세요!"
+            value={value}
+            onChange={handleOnChange}
+          ></input>
+          <button type="submit">
+            <div className="submitBtn">OK</div>
+          </button>
+        </form>
       </div>
     </TodoInsertBlock>
   );

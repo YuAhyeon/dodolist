@@ -5,7 +5,7 @@ const TodoTasksLeftBlock = styled.div`
   margin: 20px 50px;
   padding: 3px;
   border-radius: 12px;
-  border: solid 3px #373737;
+  border: solid 3px #462216;
   font-weight: bolder;
   font-size: 13px;
   background: #ffeee1;
@@ -14,6 +14,7 @@ const TodoTasksLeftBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #462216;
 `;
 
 const TodoTasksLeft = () => {
