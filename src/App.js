@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
@@ -12,13 +12,31 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: '할일 1',
+      checked: true,
+    },
+    {
+      id: 2,
+      text: '할일 2',
+      checked: false,
+    },
+    {
+      id: 3,
+      text: '할일 3',
+      checked: true,
+    },
+  ]);
+
   return (
     <>
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead />
         <TodoTasksLeft />
-        <TodoList />
+        <TodoList todos={todos} />
       </TodoTemplate>
     </>
   );

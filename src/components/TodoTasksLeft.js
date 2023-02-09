@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TodoTasksLeftBlock = styled.div`
-  margin: 20px 30px;
+  margin: 20px 50px;
   padding: 3px;
   border-radius: 12px;
-  border: solid 2px #373737;
+  border: solid 3px #373737;
   font-weight: bolder;
   font-size: 13px;
   background: #ffeee1;
-  height: 30px;
+  height: 40px;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
