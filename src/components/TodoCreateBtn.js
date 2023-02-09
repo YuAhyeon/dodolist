@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TodoCreateBlock = styled.div`
+const TodoCreateBtnBlock = styled.div`
   width: 50px;
   height: 50px;
   position: relative;
@@ -22,18 +22,18 @@ const TodoCreateBlock = styled.div`
     right: 0;
   }
 
-  .basicsDD:hover {
+  .basicsDD:active {
     display: none;
   }
 `;
 
-const TodoCreate = () => {
+const TodoCreateBtn = () => {
   return (
-    <TodoCreateBlock>
+    <TodoCreateBtnBlock>
       <img className="hoverDD" alt="hoverDD" src="/images/hover_DODO.png" />
       <img className="basicsDD" alt="basicsDD" src="/images/basics_DODO.png" />
-    </TodoCreateBlock>
+    </TodoCreateBtnBlock>
   );
 };
 
-export default TodoCreate;
+export default TodoCreateBtn;

@@ -4,7 +4,8 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
 import TodoTasksLeft from './components/TodoTasksLeft';
 import TodoList from './components/TodoList';
-import TodoCreate from './components/TodoCreate';
+import TodoCreateBtn from './components/TodoCreateBtn';
+import TodoInsert from './components/TodoInsert';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  const [insertToggle, setInsertToggle] = useState(false);
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -31,6 +33,10 @@ const App = () => {
     },
   ]);
 
+  const handleToggle = () => {
+    setInsertToggle(!insertToggle);
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -38,7 +44,10 @@ const App = () => {
         <TodoHead />
         <TodoTasksLeft />
         <TodoList todos={todos} />
-        <TodoCreate />
+        <div onClick={handleToggle}>
+          <TodoCreateBtn />
+        </div>
+        {insertToggle && <TodoInsert handleToggle={handleToggle} />}
       </TodoTemplate>
     </>
   );
