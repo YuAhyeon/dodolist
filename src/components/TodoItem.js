@@ -51,7 +51,7 @@ const TodoItemBlock = styled.div`
   }
 `;
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, handleToggle, onChangeSelectedTodo, onRemove }) => {
   const [checked, setChecked] = useState(todo.checked);
   const { text } = todo;
 
@@ -79,8 +79,21 @@ const TodoItem = ({ todo }) => {
         )}
       </div>
       <div className={checked ? 'todoText true' : 'todoText'}>{text}</div>
-      <HiOutlinePencil className="icon" size={28} />
-      <HiTrash className="icon" size={28} />
+      <HiOutlinePencil
+        className="icon"
+        size={28}
+        onClick={() => {
+          onChangeSelectedTodo(todo);
+          handleToggle();
+        }}
+      />
+      <HiTrash
+        className="icon"
+        size={28}
+        onClick={() => {
+          onRemove(todo.id);
+        }}
+      />
     </TodoItemBlock>
   );
 };

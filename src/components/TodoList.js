@@ -8,14 +8,20 @@ const TodoListBlock = styled.div`
   overflow-y: auto;
 `;
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, handleToggle, onChangeSelectedTodo, onRemove }) => {
   return (
     <TodoListBlock>
-      <dib>
+      <div>
         {todos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id}></TodoItem>
+          <TodoItem
+            handleToggle={handleToggle}
+            onChangeSelectedTodo={onChangeSelectedTodo}
+            todo={todo}
+            onRemove={onRemove}
+            key={todo.id}
+          ></TodoItem>
         ))}
-      </dib>
+      </div>
     </TodoListBlock>
   );
 };

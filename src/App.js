@@ -11,11 +11,17 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: #d7ccc8;
   }
+
+  .footerBnt{
+    background: red;
+    width: 0px;
+  }
 `;
 
 let nextId = 4;
 
 const App = () => {
+  const [selectedTodo, setSelectedTodo] = useState(null);
   const [insertToggle, setInsertToggle] = useState(false);
   const [todos, setTodos] = useState([
     {
@@ -53,18 +59,35 @@ const App = () => {
     }
   };
 
+  const onChangeSelectedTodo = (todo) => {
+    setSelectedTodo(todo);
+  };
+
+  const onRemove = (id) => {
+    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <>
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead />
         <TodoTasksLeft />
-        <TodoList todos={todos} />
-        <div onClick={handleToggle}>
+        <TodoList
+          todos={todos}
+          handleToggle={handleToggle}
+          onRemove={onRemove}
+          onChangeSelectedTodo={onChangeSelectedTodo}
+        />
+        <div className="footerBnt" onClick={handleToggle}>
           <TodoCreateBtn />
         </div>
         {insertToggle && (
-          <TodoInsert onInsertTodo={onInsertTodo} handleToggle={handleToggle} />
+          <TodoInsert
+            onInsertTodo={onInsertTodo}
+            handleToggle={handleToggle}
+            selectedTodo={selectedTodo}
+          />
         )}
       </TodoTemplate>
     </>

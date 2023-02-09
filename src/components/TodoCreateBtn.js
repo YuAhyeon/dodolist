@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const TodoCreateBtnBlock = styled.div`
   width: 50px;
-  height: 50px;
+  height: 80px;
   position: relative;
   bottom: 30px;
   left: 300px;
@@ -13,12 +13,14 @@ const TodoCreateBtnBlock = styled.div`
     height: 50px;
     position: relative;
     margin: 0px auto;
+    top: 40px;
   }
 
   .hoverDD {
     width: 50px;
     height: 50px;
     position: absolute;
+    top: 40px;
     right: 0;
   }
 

@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ImCancelCircle } from 'react-icons/im';
 
 const TodoInsertBlock = styled.div`
   position: absolute;
@@ -70,7 +69,7 @@ const TodoInsertBlock = styled.div`
   }
 `;
 
-const TodoInsert = ({ handleToggle, onInsertTodo }) => {
+const TodoInsert = ({ handleToggle, onInsertTodo, selectedTodo }) => {
   const [value, setValue] = useState('');
 
   const handleOnChange = (e) => {
@@ -83,6 +82,12 @@ const TodoInsert = ({ handleToggle, onInsertTodo }) => {
     setValue('');
     handleToggle();
   };
+
+  useEffect(() => {
+    if (selectedTodo) {
+      setValue(selectedTodo.text);
+    }
+  }, [selectedTodo]);
   return (
     <TodoInsertBlock>
       <div className="cancell" onClick={handleToggle}>
