@@ -69,7 +69,7 @@ const TodoInsertBlock = styled.div`
   }
 `;
 
-const TodoInsert = ({ handleToggle, onInsertTodo, selectedTodo }) => {
+const TodoInsert = ({ handleToggle, onInsertTodo, selectedTodo, onUpdate }) => {
   const [value, setValue] = useState('');
 
   const handleOnChange = (e) => {
@@ -94,7 +94,13 @@ const TodoInsert = ({ handleToggle, onInsertTodo, selectedTodo }) => {
         ✕
       </div>
       <div className="wrapForm">
-        <form onSubmit={HandleOnSubmit}>
+        <form
+          onSubmit={
+            selectedTodo
+              ? () => onUpdate(selectedTodo.id, value)
+              : HandleOnSubmit
+          }
+        >
           <input
             placeholder="할 일을 적어보세요!"
             value={value}

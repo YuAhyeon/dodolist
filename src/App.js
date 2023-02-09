@@ -8,14 +8,14 @@ import TodoCreateBtn from './components/TodoCreateBtn';
 import TodoInsert from './components/TodoInsert';
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    background: #d7ccc8;
-  }
 
-  .footerBnt{
-    background: red;
-    width: 0px;
-  }
+  body {
+    background-image: url("/images/해바라기.jpg") ;
+    background-repeat: repeat;
+
+    /* background: #d7ccc8; */
+}
+
 `;
 
 let nextId = 4;
@@ -26,22 +26,23 @@ const App = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      text: '할일 1',
-      checked: true,
+      text: '장 보러 가기',
+      checked: false,
     },
     {
       id: 2,
-      text: '할일 2',
+      text: '낮잠 자기',
       checked: false,
     },
     {
       id: 3,
-      text: '할일 3',
-      checked: true,
+      text: '밥 먹기',
+      checked: false,
     },
   ]);
 
   const handleToggle = () => {
+    if (selectedTodo) setSelectedTodo(null);
     setInsertToggle(!insertToggle);
   };
 
@@ -67,12 +68,18 @@ const App = () => {
     setTodos((todos) => todos.filter((todo) => todo.id !== id));
   };
 
+  const onUpdate = (id, text) => {
+    handleToggle();
+    setTodos((todos) =>
+      todos.map((todo) => (todo.id === id ? { ...todo, text } : todo))
+    );
+  };
   return (
     <>
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead />
-        <TodoTasksLeft />
+        <TodoTasksLeft todos={todos} />
         <TodoList
           todos={todos}
           handleToggle={handleToggle}
@@ -87,6 +94,7 @@ const App = () => {
             onInsertTodo={onInsertTodo}
             handleToggle={handleToggle}
             selectedTodo={selectedTodo}
+            onUpdate={onUpdate}
           />
         )}
       </TodoTemplate>

@@ -17,11 +17,11 @@ const TodoTasksLeftBlock = styled.div`
   color: #462216;
 `;
 
-const TodoTasksLeft = () => {
+const TodoTasksLeft = ({ todos }) => {
   return (
     //개수 수정하기
     <TodoTasksLeftBlock className="tasks-left">
-      {`남은 할 일: 2개`}
+      To-do를 완료하여 두두를 잡아보세요!
     </TodoTasksLeftBlock>
   );
 };

@@ -36,7 +36,7 @@ const TodoItemBlock = styled.div`
     background-color: white;
     border-radius: 25px;
     border: solid 2px #462216;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .true {

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const TodoHeadBlock = styled.div`
   background: #a76c41;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
   border-bottom: 1px solid #86532e;
 
   h1 {
@@ -15,18 +15,18 @@ const TodoHeadBlock = styled.div`
   }
 
   .today {
-    margin: 8px 0px 0px 20px;
-    color: #462216;
+    margin: 10px 0px 20px 20px;
+    color: #ffefaf;
     /* font-weight: bold; */
     font-size: 15px;
   }
 
-  .explain {
+  /* .explain {
     margin: 8px 0px 10px 20px;
     font-size: 12px;
     font-weight: bold;
     color: #ffefaf;
-  }
+  } */
 `;
 
 const TodoHead = () => {
@@ -50,7 +50,7 @@ const TodoHead = () => {
       <TodoHeadBlock>
         <h1>두두 List ✨</h1>
         <div className="today">{`${getYear}년 ${getMonth}월 ${getDate}일 ${week[getDay]}`}</div>
-        <div className="explain">To-do를 완료하여 두두를 잡아보세요!</div>
+        {/* <div className="explain">To-do를 완료하여 두두를 잡아보세요!</div> */}
       </TodoHeadBlock>
     </>
   );
