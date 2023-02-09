@@ -1,11 +1,18 @@
 import React from 'react';
-import './App.css';
+import { createGlobalStyle } from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: #d7ccc8;
+  }
+`;
 
 const App = () => {
   return (
     <>
-      <div>안녕하세요</div>
-      <div>반갑습니다</div>
+      <GlobalStyle />
+      <TodoTemplate>하이루</TodoTemplate>
     </>
   );
 };
