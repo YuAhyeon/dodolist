@@ -9,11 +9,12 @@ import TodoInsert from './components/TodoInsert';
 
 const GlobalStyle = createGlobalStyle`
 
-  body {
-    background-image: url("/images/해바라기.jpg") ;
-    background-repeat: repeat;
+  @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
-    /* background: #d7ccc8; */
+  body {
+    background-image: url("/images/해바라기(1).jpg") ;
+    background-repeat: repeat;
+    font-family: 'Gamja Flower', cursive;
 }
 
 `;
