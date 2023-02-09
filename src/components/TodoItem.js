@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { HiTrash, HiOutlinePencil } from 'react-icons/hi';
 
 const TodoItemBlock = styled.div`
   display: flex;
+  align-items: center;
   margin: 10px 10px 20px 10px;
   color: #1d1d1d;
 
   .checkBox {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 32px;
     margin: 0px 10px;
   }
 
@@ -35,16 +37,22 @@ const TodoItemBlock = styled.div`
     border-radius: 25px;
     border: solid 2px #373737;
   }
+
+  .icon {
+    /* margin: 0px 4px 0px 2px; */
+    margin: 3px 4px;
+    color: #794622;
+  }
 `;
 
 const TodoItem = ({ todo }) => {
   const [checked, setChecked] = useState(todo.checked);
+  const { text } = todo;
 
   const handleCheckChange = () => {
     setChecked(!checked);
   };
 
-  const { text } = todo;
   return (
     <TodoItemBlock>
       <div className="checkBox">
@@ -65,6 +73,8 @@ const TodoItem = ({ todo }) => {
         )}
       </div>
       <div className="todoText">{text}</div>
+      <HiOutlinePencil className="icon" size={28} />
+      <HiTrash className="icon" size={28} />
     </TodoItemBlock>
   );
 };

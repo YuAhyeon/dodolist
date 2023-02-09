@@ -4,6 +4,7 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoHead from './components/TodoHead';
 import TodoTasksLeft from './components/TodoTasksLeft';
 import TodoList from './components/TodoList';
+import TodoCreate from './components/TodoCreate';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -37,6 +38,7 @@ const App = () => {
         <TodoHead />
         <TodoTasksLeft />
         <TodoList todos={todos} />
+        <TodoCreate />
       </TodoTemplate>
     </>
   );
