@@ -8,10 +8,14 @@ import TodoCreateBtn from './components/TodoCreateBtn';
 import TodoInsert from './components/TodoInsert';
 
 const GlobalStyle = createGlobalStyle`
-  
+
+  @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+
   body {
     background-image: url("/images/해바라기(1).jpg") ;
     background-repeat: repeat;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 `;
