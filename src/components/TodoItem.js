@@ -36,6 +36,12 @@ const TodoItemBlock = styled.div`
     background-color: white;
     border-radius: 25px;
     border: solid 2px #462216;
+    font-size: 12px;
+  }
+
+  .true {
+    text-decoration: line-through;
+    text-decoration-color: #462216;
   }
 
   .icon {
@@ -72,7 +78,7 @@ const TodoItem = ({ todo }) => {
           />
         )}
       </div>
-      <div className="todoText">{text}</div>
+      <div className={checked ? 'todoText true' : 'todoText'}>{text}</div>
       <HiOutlinePencil className="icon" size={28} />
       <HiTrash className="icon" size={28} />
     </TodoItemBlock>
